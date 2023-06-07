@@ -30,7 +30,6 @@ canvas,
 svg {
 	display: block;
 	max-width: 100%;
-	margin: auto;
 }
 
 input,
@@ -40,11 +39,6 @@ select {
 	font: inherit;
 }
 
-main {
-	max-width: 1500px;
-	margin: auto;
-}
-
 p,
 h1,
 h2,
@@ -52,7 +46,10 @@ h3,
 h4,
 h5,
 h6 {
-	white-space: unset;
-	text-wrap: balance;
-	max-inline-size: 50ch;
+	overflow-wrap: break-word;
+}
+
+main {
+	max-width: 1500px;
+	margin: auto;
 }
