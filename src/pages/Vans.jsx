@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 import "./Vans.css"
 
 function Vans() {
@@ -8,15 +9,18 @@ function Vans() {
 	// Array of JSX van elements, to render per grid cell
 	const vanElements = vans.map((van) => (
 		<div key={van.id} className="van-tile">
-			<img src={van.imageUrl} />
-			<div className="van-info">
-				<h3>{van.name}</h3>
-				<p>
-					${van.price}
-					<span>/day</span>
-				</p>
-			</div>
-			<i className={`van-type ${van.type} selected`}>{van.type}</i>
+			{/* wrap in a Link so the whole card can be selected and redirected to van.id details page*/}
+			<Link to={`/vans/${van.id}`}>
+				<img src={van.imageUrl} />
+				<div className="van-info">
+					<h3>{van.name}</h3>
+					<p>
+						${van.price}
+						<span>/day</span>
+					</p>
+				</div>
+				<i className={`van-type ${van.type} selected`}>{van.type}</i>
+			</Link>
 		</div>
 	))
 
