@@ -45,3 +45,25 @@ header a:hover {
 .link-button:hover {
 	transform: translate(1px, 1px);
 }
+
+/* Footer */
+
+footer {
+	background-color: #161616;
+	color: #aaa;
+	height: 74px;
+	display: flex;
+	flex-shrink: 0;
+	justify-content: center;
+	align-items: center;
+	margin-top: auto;
+	font-weight: 500;
+}
+
+/* Layout */
+
+.site-wrapper {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
