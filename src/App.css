@@ -1,4 +1,4 @@
-/* nav bar header */
+/* Header */
 
 header {
 	height: 110px;
@@ -46,6 +46,14 @@ header a:hover {
 	transform: translate(1px, 1px);
 }
 
+/* Layout */
+
+.site-wrapper {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
 /* Footer */
 
 footer {
@@ -58,12 +66,4 @@ footer {
 	align-items: center;
 	margin-top: auto;
 	font-weight: 500;
-}
-
-/* Layout */
-
-.site-wrapper {
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
 }
