@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
+import "./HostVanDetail.css"
 
 function HostVanDetail() {
 	const params = useParams()
@@ -23,12 +24,24 @@ function HostVanDetail() {
 	}
 
 	return (
-		<div>
-			<img src={currentVan.imageUrl} width={150} />
-			<h2>{currentVan.name}</h2>
-			<p>{currentVan.price}</p>
-			<p>{currentVan.type}</p>
-		</div>
+		<section>
+			<Link to="?" className="back-button">
+				&larr; <span>Back to all vans</span>
+			</Link>
+
+			<div className="host-van-detail-layout-container">
+				<div className="host-van-detail">
+					<img src={currentVan.imageUrl} />
+					<div className="host-van-detail-info-text">
+						<i className={`van-type van-type-${currentVan.type}`}>
+							{currentVan.type}
+						</i>
+						<h3>{currentVan.name}</h3>
+						<h4>${currentVan.price}/day</h4>
+					</div>
+				</div>
+			</div>
+		</section>
 	)
 }
 
