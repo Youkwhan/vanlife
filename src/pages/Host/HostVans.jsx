@@ -6,7 +6,7 @@ function HostVans() {
 	const [vans, setVans] = useState([])
 
 	useEffect(() => {
-		const fetchVanData = async () => {
+		const fetchHostVanData = async () => {
 			try {
 				const res = await fetch("/api/host/vans")
 				const data = await res.json()
@@ -16,7 +16,7 @@ function HostVans() {
 			}
 		}
 
-		fetchVanData()
+		fetchHostVanData()
 	}, [])
 
 	const hostVanElements = vans.map((van) => (
