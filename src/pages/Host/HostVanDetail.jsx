@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useParams, Link } from "react-router-dom"
+import { useParams, Link, Outlet } from "react-router-dom"
 import "./HostVanDetail.css"
 
 function HostVanDetail() {
@@ -41,6 +41,7 @@ function HostVanDetail() {
 						<h4>${currentVan.price}/day</h4>
 					</div>
 				</div>
+            <Outlet />
 			</div>
 		</section>
 	)
