@@ -25,7 +25,8 @@ function HostVanDetail() {
 
 	return (
 		<section>
-			<Link to="?" className="back-button">
+         {/* relative to route heiarchy in App.jsx, Not our current path in the URL. SO to=".." will go back one parent route up, which is "/host" */}
+			<Link to=".." relative="path" className="back-button">
 				&larr; <span>Back to all vans</span>
 			</Link>
 
