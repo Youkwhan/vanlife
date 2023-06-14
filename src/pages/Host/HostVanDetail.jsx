@@ -1,10 +1,16 @@
 import { useEffect, useState } from "react"
-import { useParams, Link, Outlet } from "react-router-dom"
+import { useParams, Link, Outlet, NavLink } from "react-router-dom"
 import "./HostVanDetail.css"
 
 function HostVanDetail() {
 	const params = useParams()
 	const [currentVan, setCurrentVan] = useState(null)
+
+	const activeStyles = {
+		fontWeight: "bold",
+		textDecoration: "underline",
+		color: "#161616",
+	}
 
 	useEffect(() => {
 		const fetchHostVanDetail = async () => {
@@ -25,7 +31,7 @@ function HostVanDetail() {
 
 	return (
 		<section>
-         {/* relative to route heiarchy in App.jsx, Not our current path in the URL. SO to=".." will go back one parent route up, which is "/host" */}
+			{/* relative to route heiarchy in App.jsx, Not our current path in the URL. SO to=".." will go back one parent route up, which is "/host" */}
 			<Link to=".." relative="path" className="back-button">
 				&larr; <span>Back to all vans</span>
 			</Link>
@@ -41,7 +47,30 @@ function HostVanDetail() {
 						<h4>${currentVan.price}/day</h4>
 					</div>
 				</div>
-            <Outlet />
+				<nav className="host-van-detail-nav">
+					<NavLink
+						to="."
+						end
+						style={({ isActive }) => (isActive ? activeStyles : null)}
+					>
+						Details
+					</NavLink>
+
+					<NavLink
+						to="pricing"
+						style={({ isActive }) => (isActive ? activeStyles : null)}
+					>
+						Pricing
+					</NavLink>
+
+					<NavLink
+						to="photos"
+						style={({ isActive }) => (isActive ? activeStyles : null)}
+					>
+						Photos
+					</NavLink>
+				</nav>
+				<Outlet />
 			</div>
 		</section>
 	)
