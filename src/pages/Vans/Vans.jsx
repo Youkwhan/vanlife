@@ -1,13 +1,19 @@
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useSearchParams } from "react-router-dom"
 import "./Vans.css"
 
 function Vans() {
 	const [vans, setVans] = useState([])
-	console.log(vans)
+	const [searchParams, setSearchParams] = useSearchParams()
+
+	const typeFilter = searchParams.get("type")
+
+	const displayedVans = typeFilter
+		? vans.filter((van) => van.type === typeFilter)
+		: vans
 
 	// Array of JSX van elements, to render per grid cell
-	const vanElements = vans.map((van) => (
+	const vanElements = displayedVans.map((van) => (
 		<div key={van.id} className="van-tile">
 			{/* wrap in a Link so the whole card can be selected and redirected to van.id details page*/}
 			<Link to={`/vans/${van.id}`}>
