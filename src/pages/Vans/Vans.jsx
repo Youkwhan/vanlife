@@ -6,6 +6,8 @@ import { getVans } from "../../utils/api"
 function Vans() {
 	const [vans, setVans] = useState([])
 	const [searchParams, setSearchParams] = useSearchParams()
+	const [loading, setLoading] = useState(false)
+	const [error, setError] = useState(null)
 
 	const typeFilter = searchParams.get("type")
 
@@ -37,12 +39,29 @@ function Vans() {
 	// fetch vans data
 	useEffect(() => {
 		const loadVans = async () => {
-			const data = await getVans()
-			setVans(data)
+			setLoading(true)
+			try {
+				// Happy Path
+				const data = await getVans()
+				setVans(data)
+			} catch (err) {
+				// Sad Path
+				setError(err)
+			} finally {
+				setLoading(false)
+			}
 		}
 
 		loadVans()
 	}, [])
+
+	if (loading) {
+		return <h1>Loading...</h1>
+	}
+
+	if (error) {
+		return <h1>There was an error: {error.message}</h1>
+	}
 
 	return (
 		<div className="van-list-container">
