@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link, useSearchParams } from "react-router-dom"
 import "./Vans.css"
+import { getVans } from "../../utils/api"
 
 function Vans() {
 	const [vans, setVans] = useState([])
@@ -35,17 +36,12 @@ function Vans() {
 
 	// fetch vans data
 	useEffect(() => {
-		const fetchVanData = async () => {
-			try {
-				const res = await fetch("/api/vans")
-				const data = await res.json()
-				setVans(data.vans)
-			} catch (error) {
-				console.log(error)
-			}
+		const loadVans = async () => {
+			const data = await getVans()
+			setVans(data)
 		}
 
-		fetchVanData()
+		loadVans()
 	}, [])
 
 	return (

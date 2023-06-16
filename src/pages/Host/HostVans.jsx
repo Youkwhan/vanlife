@@ -1,30 +1,22 @@
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import "./HostVans.css"
+import { getHostVans } from "../../utils/api"
 
 function HostVans() {
 	const [vans, setVans] = useState([])
 
 	useEffect(() => {
-		const fetchHostVanData = async () => {
-			try {
-				const res = await fetch("/api/host/vans")
-				const data = await res.json()
-				setVans(data.vans)
-			} catch (error) {
-				console.log(error)
-			}
+		const loadHostVans = async () => {
+			const data = await getHostVans()
+			setVans(data)
 		}
 
-		fetchHostVanData()
+		loadHostVans()
 	}, [])
 
 	const hostVanElements = vans.map((van) => (
-		<Link
-			to={van.id}
-			key={van.id}
-			className="host-van-link-wrapper"
-		>
+		<Link to={van.id} key={van.id} className="host-van-link-wrapper">
 			<div className="host-van-single" key={van.id}>
 				<img src={van.imageUrl} alt={`Photo of ${van.name}`} />
 				<div className="host-van-info">
