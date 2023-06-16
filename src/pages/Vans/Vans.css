@@ -22,10 +22,7 @@
 .van-list-filter-buttons {
 	display: flex;
 	flex-wrap: wrap;
-}
-
-.van-list-filter-buttons > a {
-	margin-right: 15px;
+	gap: 1em;
 }
 
 .van-type {
