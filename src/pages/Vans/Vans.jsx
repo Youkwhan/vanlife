@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react"
-import { Link, useSearchParams, useLoaderData} from "react-router-dom"
+import { useState } from "react"
+import { Link, useSearchParams, useLoaderData } from "react-router-dom"
 import "./Vans.css"
 import { getVans } from "../../utils/api"
 
@@ -8,14 +8,11 @@ export function loader() {
 }
 
 function Vans() {
-	const [vans, setVans] = useState([])
 	const [searchParams, setSearchParams] = useSearchParams()
-	const [loading, setLoading] = useState(false)
 	const [error, setError] = useState(null)
 
 	// Fetch vans data with loader function
-	const data = useLoaderData()
-	console.log(data)
+	const vans = useLoaderData()
 
 	// GET filtered search params
 	const typeFilter = searchParams.get("type")
@@ -44,29 +41,6 @@ function Vans() {
 			</Link>
 		</div>
 	))
-
-	// fetch vans data
-	useEffect(() => {
-		const loadVans = async () => {
-			setLoading(true)
-			try {
-				// Happy Path
-				const data = await getVans()
-				setVans(data)
-			} catch (err) {
-				// Sad Path
-				setError(err)
-			} finally {
-				setLoading(false)
-			}
-		}
-
-		loadVans()
-	}, [])
-
-	if (loading) {
-		return <h1>Loading...</h1>
-	}
 
 	if (error) {
 		return <h1>There was an error: {error.message}</h1>
