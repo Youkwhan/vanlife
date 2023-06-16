@@ -16,7 +16,7 @@ function Vans() {
 	const vanElements = displayedVans.map((van) => (
 		<div key={van.id} className="van-tile">
 			{/* wrap in a Link so the whole card can be selected and redirected to van.id details page*/}
-			<Link to={`/vans/${van.id}`}>
+			<Link to={van.id}>
 				<img src={van.imageUrl} />
 				<div className="van-info">
 					<h3>{van.name}</h3>
