@@ -1,9 +1,10 @@
-import { useParams, Link } from "react-router-dom"
+import { useParams, Link, useLocation } from "react-router-dom"
 import { useEffect, useState } from "react"
 import "./VanDetail.css"
 
 function VanDetail() {
 	const params = useParams() // {id : 1}
+	const location = useLocation() // {pathname: "/vans/5", search: "", hash: "", state: {search: "type=luxury"}, key: "emy8w7js"}
 	const [van, setVan] = useState(null)
 
 	useEffect(() => {
@@ -20,10 +21,15 @@ function VanDetail() {
 		fetchVanDetail()
 	}, [params.id])
 
+	// see if link had a state from the previous route
+	const search = location.state?.search || ""
+	const type = location.state?.type || "all"
+
 	return (
 		<div className="van-detail-container">
-			<Link to=".." relative="path" className="back-button">
-				&larr; <span>Back to all vans</span>
+			<Link to={`..${search}`} relative="path" className="back-button">
+				&larr;{" "}
+				<span>Back to {type.charAt(0).toUpperCase() + type.slice(1)} vans</span>
 			</Link>
 			{van ? (
 				<div className="van-detail">

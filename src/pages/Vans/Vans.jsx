@@ -16,7 +16,10 @@ function Vans() {
 	const vanElements = displayedVans.map((van) => (
 		<div key={van.id} className="van-tile">
 			{/* wrap in a Link so the whole card can be selected and redirected to van.id details page*/}
-			<Link to={van.id} state={{search: searchParams.toString()}}>
+			<Link
+				to={van.id}
+				state={{ search: `?${searchParams.toString()}`, type: typeFilter }}
+			>
 				<img src={van.imageUrl} />
 				<div className="van-info">
 					<h3>{van.name}</h3>
