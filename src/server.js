@@ -80,8 +80,8 @@ createServer({
 		//this.timing = 2000 // delay to test loading
 
 		this.get("/vans", (schema, request) => {
-			return new Response(400, {}, { error: "Error fetching data" }) // Test error
-			// return schema.vans.all()
+			// return new Response(400, {}, { error: "Error fetching data" }) // Test error
+			return schema.vans.all()
 		})
 
 		this.get("/vans/:id", (schema, request) => {
