@@ -3,9 +3,10 @@ import { redirect } from "./redirectUtil"
 
 export async function requireAuth() {
 	// async since in the future we might have to pull from a db, secure
-	const isLoggedIn = false
-	console.log("redirecting?")
+	const isLoggedIn = true
+
 	if (!isLoggedIn) {
 		throw redirect("/login?message=You must log in first.")
 	}
+	return null
 }
