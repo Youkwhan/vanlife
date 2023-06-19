@@ -1,8 +1,10 @@
 import { Link, useLoaderData } from "react-router-dom"
 import "./HostVans.css"
 import { getHostVans } from "../../utils/api"
+import { requireAuth } from "../../utils/utils"
 
-export function loader() {
+export async function loader() {
+	await requireAuth()
 	return getHostVans()
 }
 

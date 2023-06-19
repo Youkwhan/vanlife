@@ -5,6 +5,7 @@ import {
 	createRoutesFromElements,
 	Route,
 } from "react-router-dom"
+
 import Home from "./pages/Home"
 import About from "./pages/About"
 import Vans, { loader as vansLoader } from "./pages/Vans/Vans"
@@ -26,6 +27,8 @@ import Error from "./components/Error"
 import Layout from "./components/Layout"
 import HostLayout from "./components/HostLayout"
 
+import { requireAuth } from "./utils/utils"
+
 import "./server"
 
 const router = createBrowserRouter(
@@ -43,27 +46,21 @@ const router = createBrowserRouter(
 			<Route path="vans/:id" element={<VanDetail />} loader={vanDetailLoader} />
 
 			{/* Host route should be protected per login user */}
-			<Route path="/host" element={<HostLayout />}>
+			<Route path="host" element={<HostLayout />}>
 				<Route
 					index
 					element={<Dashboard />}
-					loader={async () => {
-						return null
-					}}
+					loader={async () => await requireAuth()}
 				/>
 				<Route
 					path="income"
 					element={<Income />}
-					loader={async () => {
-						return null
-					}}
+					loader={async () => await requireAuth()}
 				/>
 				<Route
 					path="reviews"
 					element={<Reviews />}
-					loader={async () => {
-						return null
-					}}
+					loader={async () => await requireAuth()}
 				/>
 				<Route path="vans" element={<HostVans />} loader={hostVansLoader} />
 				<Route
@@ -74,23 +71,17 @@ const router = createBrowserRouter(
 					<Route
 						index
 						element={<HostVanInfo />}
-						loader={async () => {
-							return null
-						}}
+						loader={async () => await requireAuth()}
 					/>
 					<Route
 						path="pricing"
 						element={<HostVanPricing />}
-						loader={async () => {
-							return null
-						}}
+						loader={async () => await requireAuth()}
 					/>
 					<Route
 						path="photos"
 						element={<HostVanPhotos />}
-						loader={async () => {
-							return null
-						}}
+						loader={async () => await requireAuth()}
 					/>
 				</Route>
 			</Route>
