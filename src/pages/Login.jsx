@@ -1,10 +1,16 @@
-import { useLoaderData, useNavigate } from "react-router-dom"
+import { useLoaderData, useNavigate, Form } from "react-router-dom"
 import "./Login.css"
 import { useState } from "react"
 import { loginUser } from "../utils/api"
 
+// using native web get search params with type message
 export function loader({ request }) {
 	return new URL(request.url).searchParams.get("message")
+}
+
+export async function action() {
+	console.log("Action function")
+	return null
 }
 
 export default function Login() {
@@ -43,7 +49,8 @@ export default function Login() {
 			<h1>Sign in to your account</h1>
 			{message && <h3 className="red">{message}</h3>}
 			{error && <h3 className="red">{error.message}</h3>}
-			<form onSubmit={handleSubmit} className="login-form">
+
+			<Form method="post" className="login-form">
 				<input
 					name="email"
 					onChange={handleChange}
@@ -61,7 +68,7 @@ export default function Login() {
 				<button disabled={status === "submitting"}>
 					{status === "submitting" ? "Logging in..." : "Log in"}
 				</button>
-			</form>
+			</Form>
 		</div>
 	)
 }
