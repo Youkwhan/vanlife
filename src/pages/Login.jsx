@@ -1,4 +1,5 @@
-import { useLoaderData, useNavigate, Form, redirect } from "react-router-dom"
+import { useLoaderData, useNavigate, Form } from "react-router-dom"
+import { redirect } from "../utils/redirectUtil"
 import "./Login.css"
 import { useState } from "react"
 import { loginUser } from "../utils/api"
@@ -14,7 +15,6 @@ export async function action({ request }) {
 	const password = formData.get("password")
 	const data = await loginUser({ email, password })
 	localStorage.setItem("loggedin", true)
-	console.log("hello")
 	return redirect("/host")
 }
 
@@ -43,7 +43,7 @@ export default function Login() {
 			{message && <h3 className="red">{message}</h3>}
 			{error && <h3 className="red">{error.message}</h3>}
 
-			<Form method="post" className="login-form">
+			<Form method="post" className="login-form" replace>
 				<input name="email" type="email" placeholder="Email address" />
 				<input name="password" type="password" placeholder="Password" />
 				<button disabled={status === "submitting"}>
