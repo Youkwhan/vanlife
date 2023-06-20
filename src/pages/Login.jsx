@@ -1,4 +1,4 @@
-import { useLoaderData, useNavigate, Form } from "react-router-dom"
+import { useLoaderData, useNavigate, Form, redirect } from "react-router-dom"
 import "./Login.css"
 import { useState } from "react"
 import { loginUser } from "../utils/api"
@@ -13,9 +13,9 @@ export async function action({ request }) {
 	const email = formData.get("email")
 	const password = formData.get("password")
 	const data = await loginUser({ email, password })
-	console.log(data)
-
-	return null
+	localStorage.setItem("loggedin", true)
+	console.log("hello")
+	return redirect("/host")
 }
 
 export default function Login() {
