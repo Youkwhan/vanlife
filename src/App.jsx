@@ -48,10 +48,15 @@ const router = createBrowserRouter(
 			<Route
 				path="vans"
 				element={<Vans />}
-				loader={vansLoader}
 				errorElement={<Error />}
+				loader={vansLoader}
 			/>
-			<Route path="vans/:id" element={<VanDetail />} loader={vanDetailLoader} />
+			<Route
+				path="vans/:id"
+				element={<VanDetail />}
+				errorElement={<Error />}
+				loader={vanDetailLoader}
+			/>
 
 			{/* Host route should be protected per login user */}
 			<Route path="host" element={<HostLayout />}>
@@ -70,10 +75,16 @@ const router = createBrowserRouter(
 					element={<Reviews />}
 					loader={async ({ request }) => await requireAuth(request)}
 				/>
-				<Route path="vans" element={<HostVans />} loader={hostVansLoader} />
+				<Route
+					path="vans"
+					element={<HostVans />}
+					errorElement={<Error />}
+					loader={hostVansLoader}
+				/>
 				<Route
 					path="vans/:id"
 					element={<HostVanDetail />}
+					errorElement={<Error />}
 					loader={hostVanDetailLoader}
 				>
 					<Route
