@@ -1,9 +1,9 @@
-import { Link, useSearchParams, useLoaderData } from "react-router-dom"
+import { Link, useSearchParams, useLoaderData, defer } from "react-router-dom"
 import "./Vans.css"
 import { getVans } from "../../utils/api"
 
 export function loader() {
-	return getVans()
+	return defer({ vans: getVans() })
 }
 
 function Vans() {
