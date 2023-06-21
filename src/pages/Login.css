@@ -47,3 +47,8 @@
 .red {
 	color: #cc0000;
 }
+
+.login-form > button:disabled {
+	background-color: #aaaaaa;
+	cursor: not-allowed;
+}
