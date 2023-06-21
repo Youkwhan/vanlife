@@ -11,7 +11,7 @@ export async function loader({ request }) {
 	return defer({ vans: hostVansPromise })
 }
 
-function HostVans() {
+export default function HostVans() {
 	const dataPromise = useLoaderData()
 
 	function renderVanElements(vans) {
@@ -44,4 +44,4 @@ function HostVans() {
 	)
 }
 
-export default HostVans
+

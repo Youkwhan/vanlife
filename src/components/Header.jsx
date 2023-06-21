@@ -1,7 +1,7 @@
 import { Link, NavLink } from "react-router-dom"
 import avatarIcon from "../assets/images/avatar-icon.png"
 
-function Header() {
+export default function Header() {
 	const activeStyles = {
 		fontWeight: "bold",
 		textDecoration: "underline",
@@ -45,4 +45,3 @@ function Header() {
 	)
 }
 
-export default Header

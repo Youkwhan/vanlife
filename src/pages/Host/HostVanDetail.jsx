@@ -18,7 +18,7 @@ export async function loader({ params, request }) {
 	return defer({ currentVan: hostVanDetailPromise })
 }
 
-function HostVanDetail() {
+export default function HostVanDetail() {
 	const dataPromise = useLoaderData()
 
 	const activeStyles = {
@@ -80,5 +80,3 @@ function HostVanDetail() {
 		</section>
 	)
 }
-
-export default HostVanDetail

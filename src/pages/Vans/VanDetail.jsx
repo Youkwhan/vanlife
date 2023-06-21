@@ -15,7 +15,7 @@ export function loader({ params }) {
 	return defer({ van: vanDetailPromise })
 }
 
-function VanDetail() {
+export default function VanDetail() {
 	const location = useLocation() // {pathname: "/vans/5", search: "", hash: "", state: {search: "type=luxury"}, key: "emy8w7js"}
 	const dataPromise = useLoaderData()
 
@@ -50,4 +50,4 @@ function VanDetail() {
 		</div>
 	)
 }
-export default VanDetail
+
