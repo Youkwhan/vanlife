@@ -1,15 +1,25 @@
-import { Link, Outlet, NavLink, useLoaderData } from "react-router-dom"
+import {
+	Link,
+	Outlet,
+	NavLink,
+	useLoaderData,
+	defer,
+	Await,
+} from "react-router-dom"
+import { Suspense } from "react"
 import "./HostVanDetail.css"
 import { getHostVans } from "../../utils/api"
 import { requireAuth } from "../../utils/utils"
 
 export async function loader({ params, request }) {
 	await requireAuth(request)
-	return getHostVans(params.id)
+
+	const hostVanDetailPromise = getHostVans(params.id)
+	return defer({ currentVan: hostVanDetailPromise })
 }
 
 function HostVanDetail() {
-	const currentVan = useLoaderData()
+	const dataPromise = useLoaderData()
 
 	const activeStyles = {
 		fontWeight: "bold",
@@ -17,13 +27,8 @@ function HostVanDetail() {
 		color: "#161616",
 	}
 
-	return (
-		<section>
-			{/* relative to route heiarchy in App.jsx, Not our current path in the URL. SO to=".." will go back one parent route up, which is "/host" */}
-			<Link to=".." relative="path" className="back-button">
-				&larr; <span>Back to all vans</span>
-			</Link>
-
+	function renderHostVanDetail(currentVan) {
+		return(
 			<div className="host-van-detail-layout-container">
 				<div className="host-van-detail">
 					<img src={currentVan.imageUrl} />
@@ -60,6 +65,18 @@ function HostVanDetail() {
 				</nav>
 				<Outlet context={{ currentVan: currentVan }} />
 			</div>
+		)
+	}
+
+	return (
+		<section>
+			{/* relative to route heiarchy in App.jsx, Not our current path in the URL. SO to=".." will go back one parent route up, which is "/host" */}
+			<Link to=".." relative="path" className="back-button">
+				&larr; <span>Back to all vans</span>
+			</Link>
+			<Suspense fallback={<h2>Loading van...</h2>}>
+				<Await resolve={dataPromise.currentVan}>{renderHostVanDetail}</Await>
+			</Suspense>
 		</section>
 	)
 }
