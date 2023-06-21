@@ -3,8 +3,8 @@ import "./HostVanDetail.css"
 import { getHostVans } from "../../utils/api"
 import { requireAuth } from "../../utils/utils"
 
-export async function loader({ params }) {
-	await requireAuth()
+export async function loader({ params, request }) {
+	await requireAuth(request)
 	return getHostVans(params.id)
 }
 
