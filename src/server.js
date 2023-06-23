@@ -85,6 +85,7 @@ createServer({
 		this.namespace = "api"
 		this.logging = false
 		// this.timing = 1000 // delay to test loading
+		this.passthrough("https://firestore.googleapis.com/**") // Mirage.js intercepts all api request, so we can put any url to allow passthrough mirage.js
 
 		this.get("/vans", (schema, request) => {
 			// return new Response(400, {}, { error: "Error fetching data" }) // Test error

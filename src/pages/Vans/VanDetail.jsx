@@ -7,11 +7,11 @@ import {
 } from "react-router-dom"
 import { Suspense } from "react"
 import "./VanDetail.css"
-import { getVans } from "../../utils/api"
+import { getVan } from "../../utils/api"
 
 export function loader({ params }) {
 	// the matching params will be available by the path url.
-	const vanDetailPromise = getVans(params.id)
+	const vanDetailPromise = getVan(params.id)
 	return defer({ van: vanDetailPromise })
 }
 
