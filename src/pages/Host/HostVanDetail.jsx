@@ -8,13 +8,13 @@ import {
 } from "react-router-dom"
 import { Suspense } from "react"
 import "./HostVanDetail.css"
-import { getHostVans } from "../../utils/api"
+import { getVan } from "../../utils/api"
 import { requireAuth } from "../../utils/utils"
 
 export async function loader({ params, request }) {
 	await requireAuth(request)
 
-	const hostVanDetailPromise = getHostVans(params.id)
+	const hostVanDetailPromise = getVan(params.id)
 	return defer({ currentVan: hostVanDetailPromise })
 }
 
@@ -28,7 +28,7 @@ export default function HostVanDetail() {
 	}
 
 	function renderHostVanDetail(currentVan) {
-		return(
+		return (
 			<div className="host-van-detail-layout-container">
 				<div className="host-van-detail">
 					<img src={currentVan.imageUrl} />
