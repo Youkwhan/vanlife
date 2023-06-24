@@ -1,13 +1,13 @@
 .van-list-container {
-	padding-inline: 23px;
+	padding-inline: 1.5em;
 }
 
 .van-list {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
 	justify-items: center;
-	gap: 34px;
-	margin-top: 57px;
+	gap: 3em;
+	margin-block: 3.5em;
 }
 
 .van-tile a {
@@ -17,6 +17,10 @@
 
 .van-tile img {
 	border-radius: 5px;
+}
+
+.van-info p {
+	margin-bottom: 0.5em;
 }
 
 .van-list-filter-buttons {

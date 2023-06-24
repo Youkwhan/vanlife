@@ -70,3 +70,16 @@
 .host-dashboard-vans .host-vans-list {
 	padding-inline: 0;
 }
+
+.host-van-single {
+	display: flex;
+	justify-content: start;
+	align-items: center;
+}
+
+.host-van-image {
+	width: 20%;
+}
+.view {
+	padding: 0em 0.5em 2em;
+}

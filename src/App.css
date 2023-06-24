@@ -4,7 +4,7 @@ header {
 	height: 110px;
 	display: flex;
 	align-items: center;
-	padding-block: 10px;
+	padding-block: 0.6em;
 }
 
 header .site-logo {
@@ -12,14 +12,14 @@ header .site-logo {
 	margin-right: auto;
 	text-transform: uppercase;
 	font-weight: 900;
-	font-size: 25px;
+	font-size: 1.5rem;
 }
 
 header a {
 	text-decoration: none;
 	color: #4d4d4d;
 	font-weight: 600;
-	padding: 5px 20px;
+	padding: 1em;
 }
 
 header a:hover {
@@ -28,8 +28,8 @@ header a:hover {
 }
 
 header .login-icon {
-	height: 18px;
-	width: 18px;
+	height: 1.125rem;
+	width: 1.125rem;
 }
 
 header .login-link {

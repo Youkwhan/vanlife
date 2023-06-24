@@ -1,6 +1,10 @@
 .host-income {
-	padding-inline: 26px;
+	padding-inline: 1.5em;
 	color: #161616;
+}
+
+.host-income > * {
+	margin-bottom: 0.5em;
 }
 
 .host-income > p {
@@ -22,7 +26,9 @@ img.graph {
 	width: 100%;
 	max-width: 500px;
 }
-
+.host-income .info-header > * {
+	margin-bottom: 0.5em;
+}
 .host-income .info-header > p {
 	color: #4d4d4d;
 }
