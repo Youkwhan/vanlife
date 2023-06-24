@@ -1,7 +1,9 @@
 # vanlife
 A landing page website for van rentals
 
-**Link to project:** [https://harmonious-begonia-821825.netlify.app/](https://harmonious-begonia-821825.netlify.app/)
+**Link to project:** [https://boisterous-gumption-10ba88.netlify.app/](https://boisterous-gumption-10ba88.netlify.app/)
+
+![vanlife readme](https://github.com/Youkwhan/vanlife/assets/37788922/68063a26-6e42-41de-9fbf-b920e166f7f2)
 
 ## Overview
 Welcome to our rental website, where you can find the perfect travel van for your next road trip adventure. Whether you're looking to host your own van or discover and rent a new one, we've got you covered!
