@@ -3,12 +3,15 @@
 }
 
 .about-page-container {
-	margin: 2em;
+	margin: 0 auto;
+	padding-block: 2em;
+	padding-inline: 1em;
+	max-width: 1024px;
 }
 
 .about-hero-image {
 	margin-bottom: 1em;
-	border-radius: 12px;
+	border-radius: 5px;
 }
 
 .about-page-content {
@@ -18,29 +21,34 @@
 }
 
 .about-page-content h1 {
-	line-height: 38px;
-	margin-bottom: 10px;
+	font-size: 1.875rem;
+	line-height: 2.25rem;
+	margin-block: 1.5rem;
 }
 
 .about-page-content p {
-	line-height: 25px;
+	line-height: 1.75rem;
+	margin-bottom: 1.25rem;
 }
 
 .about-page-cta {
 	background-color: #ffcc8d;
 	color: #161616;
-	padding-inline: 3.5em;
-	padding-bottom: 3.5em;
-	border-radius: 12px;
+	padding: 2rem;
+	margin-bottom: 2rem;
+	border-radius: 5px;
 }
 
 .about-page-cta h2 {
-	margin: 0;
-	padding-block: 3.5em;
+	font-weight: 700;
+	font-size: 1.875rem;
+	line-height: 2.25rem;
+	margin-bottom: 0.75rem;
 }
 
 .about-page-cta .link-button {
 	background-color: #161616;
 	color: white;
 	border-radius: 10px;
+	font-weight: 500;
 }

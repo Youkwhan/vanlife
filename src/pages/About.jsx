@@ -25,7 +25,7 @@ export default function About() {
 					Your van is ready.
 				</h2>
 				<Link className="link-button" to="/vans">
-					Explore our vans
+					Explore our vans &#x27A1;
 				</Link>
 			</div>
 		</div>
