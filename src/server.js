@@ -73,12 +73,21 @@ createServer({
 			type: "rugged",
 			hostId: "123",
 		})
-		server.create("user", {
-			id: "123",
-			email: "b@b.com",
-			password: "p123",
-			name: "Bob",
-		})
+		server.create(
+			"user",
+			{
+				id: "123",
+				email: "user@vanlife.com",
+				password: "van123",
+				name: "Guest",
+			},
+			{
+				id: "789",
+				email: "b@b.com",
+				password: "p123",
+				name: "Bob",
+			}
+		)
 	},
 
 	routes() {

@@ -21,7 +21,7 @@ export async function action({ request }) {
 		new URL(request.url).searchParams.get("redirectTo") || "/host"
 
 	try {
-		const data = await loginUser({ email, password })
+		const data = await loginUser({ email, password }) // firebase auth validation
 		localStorage.setItem("loggedin", true)
 		return redirect(pathname)
 	} catch (err) {
@@ -46,6 +46,15 @@ export default function Login() {
 				<button disabled={navigation.state === "submitting"}>
 					{navigation.state === "submitting" ? "Logging in..." : "Log in"}
 				</button>
+				<p>
+					<a
+						href="#"
+						class="hint  hint--right"
+						data-hint="Guest: user@vanlife.com&#10;Password: van123"
+					>
+						Hint?
+					</a>
+				</p>
 			</Form>
 		</div>
 	)

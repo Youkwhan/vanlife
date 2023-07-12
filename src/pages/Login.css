@@ -51,3 +51,77 @@
 	background-color: #aaaaaa;
 	cursor: not-allowed;
 }
+
+/* hint */
+
+p {
+	margin-top: 1em;
+	padding-left: 5px;
+	align-self: flex-start;
+}
+a {
+	color: #1a5a7a;
+	text-decoration: none;
+	cursor: help;
+}
+
+.hint {
+	position: relative;
+	display: inline-block;
+}
+
+.hint:before,
+.hint:after {
+	position: absolute;
+	opacity: 0;
+	z-index: 1000000;
+	-webkit-transition: 0.3s ease;
+	-moz-transition: 0.3s ease;
+	pointer-events: none;
+}
+
+.hint:hover:before,
+.hint:hover:after {
+	opacity: 1;
+}
+
+.hint:before {
+	content: "";
+	position: absolute;
+	background: transparent;
+	border: 6px solid transparent;
+	position: absolute;
+}
+
+.hint:after {
+	content: attr(data-hint);
+	background: rgba(0, 0, 0, 0.8);
+	color: white;
+	padding: 8px 10px;
+	font-size: 12px;
+	white-space: pre-wrap;
+	box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* right */
+
+.hint--right:before {
+	left: 100%;
+	bottom: 50%;
+	margin: 0 0 -4px -8px;
+	border-right-color: rgba(0, 0, 0, 0.8);
+}
+
+.hint--right:after {
+	left: 100%;
+	bottom: 50%;
+	margin: 0 0 -13px 4px;
+}
+
+.hint--right:hover:before {
+	margin: 0 0 -4px -0;
+}
+
+.hint--right:hover:after {
+	margin: 0 0 -13px 12px;
+}
