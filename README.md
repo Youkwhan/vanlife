@@ -5,6 +5,10 @@ A landing page website for van rentals
 
 ![vanlife readme](https://github.com/Youkwhan/vanlife/assets/37788922/68063a26-6e42-41de-9fbf-b920e166f7f2)
 
+
+https://github.com/Youkwhan/vanlife/assets/37788922/2d095447-a570-4932-a508-9ba04912af20
+
+
 ## Overview
 Welcome to our rental website, where you can find the perfect travel van for your next road trip adventure. Whether you're looking to host your own van or discover and rent a new one, we've got you covered!
 
