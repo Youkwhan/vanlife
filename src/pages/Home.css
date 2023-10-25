@@ -28,6 +28,7 @@
 .home-container p {
 	line-height: 24px;
 	margin-bottom: 2rem;
+	margin-inline: auto;
 }
 
 /* "Link" acting as button */
@@ -45,7 +46,6 @@
 	border-radius: 5px;
 	cursor: pointer;
 	transition: transform 0.1s ease-in-out;
-	
 }
 
 .home-container a:hover {
@@ -57,5 +57,4 @@
 	.home-container a {
 		width: 100%;
 	}
-	
 }
