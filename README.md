@@ -75,7 +75,6 @@ Thank you for reading about this project. If you'd like to connect with me for m
 
 - Email [Youkwhan@gmail.com](**Youkwhan@gmail.com**)
 - LinkedIn [https://www.linkedin.com/in/youkwhan/](https://www.linkedin.com/in/youkwhan/)
-- Portfolio [https://devyouk.netlify.app](https://devyouk.netlify.app)
 
 ### License
 This project is licensed under the [MIT License](LICENSE.md).
